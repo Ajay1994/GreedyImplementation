@@ -27,7 +27,8 @@ public class DijkastraAlgorithm {
 			HeapMap.Node node = this.heapMap.extractMinimum();
 			
 			for(Edge edge : graph.adjacencyList[node.key]){
-				if(heapMap.contains(edge.dest) && (heapMap.getWeight(edge.dest) == Integer.MAX_VALUE || heapMap.getWeight(edge.dest) > node.weight + edge.weight)){
+				if(heapMap.contains(edge.dest) && (heapMap.getWeight(edge.dest) == Integer.MAX_VALUE || 
+						heapMap.getWeight(edge.dest) > node.weight + edge.weight)){
 					result.put(edge.dest, node.weight + edge.weight);
 					heapMap.decreaseKey(edge.dest, node.weight + edge.weight);
 				}
